@@ -76,7 +76,9 @@ public class ValueIterationAgent extends PlanningValueAgent{
                         }
                         max = Math.max(max, sum);
                     }
-                    this.v.put(e, max);
+                    if(!this.mdp.estAbsorbant(e)){
+                        this.v.put(e, max);
+                    }
                 }
                 
                 Double diff_max = 0.0;
